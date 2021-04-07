@@ -1,7 +1,7 @@
 FROM debian:stretch
 
 LABEL maintainer="Cristian B. Santos <cbsan.dev@gmail.com>"
-LABEL describle="Flutter development environment"
+LABEL describle="Android SDK"
 
 ENV ANDROID_SDK_URL=https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip
 ENV ANDROID_TOOLS_ROOT=/opt/android_sdk
