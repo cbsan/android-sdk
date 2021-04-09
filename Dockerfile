@@ -14,7 +14,6 @@ ENV ANDROID_EMULATOR_VERSION=28
 ENV PATH=${PATH}:${ANDROID_HOME}/emulator:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/cmdline-tools/bin
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV TZ=America/Sao_Paulo
-ENV QTWEBENGINE_DISABLE_SANDBOX=1
 
 RUN apt update && apt install -y \
     curl \
