@@ -34,5 +34,6 @@ RUN apt update && apt install -y \
     "extras;google;m2repository" \
     "system-images;android-${ANDROID_EMULATOR_VERSION};default;x86_64" \
     "system-images;android-${ANDROID_EMULATOR_VERSION};google_apis_playstore;x86" \
+ && yes | sdkmanager --sdk_root=$ANDROID_TOOLS_ROOT --licenses || echo "Failed"  \
  && echo "no" | avdmanager create avd -n "emu${ANDROID_EMULATOR_VERSION}" -f -k "system-images;android-${ANDROID_EMULATOR_VERSION};google_apis_playstore;x86" -d "Nexus 4" \
  && echo "function runEmulator() {\n emulator -avd emu${ANDROID_EMULATOR_VERSION} -no-audio -no-boot-anim -gpu off\n}" >> ~/.bashrc
