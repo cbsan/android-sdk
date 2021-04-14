@@ -25,6 +25,7 @@ RUN apt update && apt install -y \
   && unzip /tmp/sdk.zip -d "${ANDROID_HOME}" \
   && apt-get autoremove -y \
   && rm -rf /var/lib/apt/lists/* \
+  && rm -f /tmp/sdk.zip \
   && yes | sdkmanager --sdk_root=$ANDROID_HOME \
     "platforms;android-${ANDROID_COMPILE_SDK}" \
     "build-tools;${ANDROID_BUILD_TOOLS}" \
