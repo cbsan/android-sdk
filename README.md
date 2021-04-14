@@ -20,7 +20,7 @@ Sugestões e criticas são muito bem vindas :blush:
 $ docker build -t android-sdk .
 ```
 
-💡Você pode utilizar a imagem já compilada que está no registry, para isso basta utilizar a imagem **cbsan/android-sdk**,
+💡Você pode utilizar a imagem já compilada que está no registry, para isso basta utilizar a imagem **cbsan/android-sdk**.
 
 #### Executando
 
@@ -30,9 +30,11 @@ Para subir o container é necessário executar o comando abaixo:
 $ docker run -ti --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev:/dev cbsan/android-sdk bash
 ```
 
-ℹ️ Estou utilizando a imagem que esta compilada no registry **cbsan/android-sdk**
+ℹ️ No exemplo estou utilizando a imagem que esta compilada no registry **cbsan/android-sdk**, caso tenha compilado ela localmente deve substituir pela nomenclatura utilizada.
 
 #### Emulador
+
+⚠️ Importante: Esse comando ira utilizar o X do SO pois ele abre uma janela do sistema, no caso do linux é necessário fazer o mapeamento, isso pode ser feito executando o comando **xhost local:root** no terminal local.:warning:
 
 Essa imagem contem um emulador Android configurado rodando na versão 28. Para executar utilize o comando abaixo:
 
@@ -40,7 +42,7 @@ Essa imagem contem um emulador Android configurado rodando na versão 28. Para e
 $ runEmulator
 ```
 
-💡O comando deve ser executado dentro do container
+💡O comando deve ser executado dentro do container.
 
 ---
 
