@@ -19,14 +19,14 @@ RUN apt update && apt install -y \
     curl \
     unzip \
     openjdk-8-jdk \
-  && curl -fsSL $ANDROID_SDK_URL -o /tmp/sdk.zip \
+  && curl -fsSL ${ANDROID_SDK_URL} -o /tmp/sdk.zip \
   && mkdir -p ${ANDROID_HOME} \
   && mkdir -p ~/.android \
   && unzip /tmp/sdk.zip -d "${ANDROID_HOME}" \
   && apt-get autoremove -y \
   && rm -rf /var/lib/apt/lists/* \
   && rm -f /tmp/sdk.zip \
-  && yes | sdkmanager --sdk_root=$ANDROID_HOME \
+  && yes | sdkmanager --sdk_root=${ANDROID_HOME} \
     "platforms;android-${ANDROID_COMPILE_SDK}" \
     "build-tools;${ANDROID_BUILD_TOOLS}" \
     "extras;android;m2repository" \
@@ -34,6 +34,6 @@ RUN apt update && apt install -y \
     "extras;google;m2repository" \
     "system-images;android-${ANDROID_EMULATOR_VERSION};default;x86_64" \
     "system-images;android-${ANDROID_EMULATOR_VERSION};google_apis_playstore;x86" \
- && yes | sdkmanager --sdk_root=$ANDROID_TOOLS_ROOT --licenses || echo "Failed"  \
+ && yes | sdkmanager --sdk_root=${ANDROID_HOME} --licenses || echo "Failed"  \
  && echo "no" | avdmanager create avd -n "emu${ANDROID_EMULATOR_VERSION}" -f -k "system-images;android-${ANDROID_EMULATOR_VERSION};google_apis_playstore;x86" -d "Nexus 4" \
  && echo "function runEmulator() {\n emulator -avd emu${ANDROID_EMULATOR_VERSION} -no-audio -no-boot-anim -gpu off\n}" >> ~/.bashrc
