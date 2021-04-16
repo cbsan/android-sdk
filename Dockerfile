@@ -4,10 +4,8 @@ LABEL maintainer="Cristian B. Santos <cbsan.dev@gmail.com>"
 LABEL describle="Android SDK"
 
 ENV ANDROID_SDK_URL=https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip
-ENV ANDROID_HOME=~/.android
-ENV ANDROID_SDK_HOME=${ANDROID_HOME}
-ENV ANDROID_SDK_ROOT=/opt/android_sdk
-ENV ANDROID_SDK=${ANDROID_SDK_ROOT}
+ENV ANDROID_HOME=/opt/android
+ENV ANDROID_SDK_ROOT=${ANDROID_HOME}/sdk
 ENV ANDROID_COMPILE_SDK=30
 ENV ANDROID_BUILD_TOOLS=30.0.3
 ENV ANDROID_EMULATOR_VERSION=28
@@ -20,8 +18,7 @@ RUN apt update && apt install -y \
     unzip \
     openjdk-8-jdk \
   && curl -fsSL ${ANDROID_SDK_URL} -o /tmp/sdk.zip \
-  && mkdir -p ${ANDROID_SDK_ROOT} \
-  && mkdir -p ~/.android \
+  && mkdir -p ${ANDROID_HOME} \
   && unzip /tmp/sdk.zip -d "${ANDROID_SDK_ROOT}" \
   && apt-get autoremove -y \
   && rm -rf /var/lib/apt/lists/* \
