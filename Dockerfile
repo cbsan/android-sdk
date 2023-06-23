@@ -3,7 +3,7 @@ FROM debian:stretch
 LABEL maintainer="Cristian B. Santos <cbsan.dev@gmail.com>"
 LABEL describle="Android SDK"
 
-ENV ANDROID_SDK_URL=https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip
+ENV ANDROID_SDK_URL=https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
 ENV ANDROID_HOME=/root/.android
 ENV ANDROID_SDK_ROOT=/opt/android/sdk
 ENV ANDROID_COMPILE_SDK=30
